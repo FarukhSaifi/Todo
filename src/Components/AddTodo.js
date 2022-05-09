@@ -1,64 +1,60 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import TodoList from "./TodoList";
 
-class AddTodo extends Component {
-  state = {
-    // id: [],
-    term: "",
-    allItem: []
+const AddTodo = () => {
+  const [text, setText] = useState("");
+  const [todos, setTodos] = useState([]);
+
+  const handleChange = (e) => {
+    setText(e.target.value);
   };
 
-  ItemHandler = e => {
-    this.setState({ term: e.target.value });
+  const additem = (e) => {
+    const todo = {
+      id: Math.floor(Math.random() * 100),
+      title: text,
+    };
+    setTodos([...todos, todo]);
+    setText("");
   };
 
-  additem = e => {
-    this.setState({
-      term: "",
-      // id: Math.floor(Math.random() * 10),
-      allItem: [...this.state.allItem, this.state.term]
-    });
-  };
-
-  deleteitem = id => {
+  const deleteItem = (id) => {
     console.log(`Delete is ID ${id}`);
-    let allItem = this.state.allItem.filter((data, index) => index !== id);
-    this.setState({ allItem });
+    let filterTodo = todos.filter((todo, index) => todo.id !== id);
+    setTodos(filterTodo);
   };
 
-  render() {
-    const { allItem, term } = this.state;
-    return (
-      <React.Fragment>
-        <div className=" d-flex justify-content-center">
-          <div className="form-group col-md-6 text-center">
-            <input
-              type="text"
-              className="form-control"
-              value={term}
-              name="search"
-              placeholder="Enter The Tasks"
-              onChange={this.ItemHandler}
-              onKeyPress={e => {
-                if (e.key === "Enter") {
-                  this.additem();
-                }
-              }}
-            />
-            <small
-              id="helpId"
-              className="form-text text-muted animated infinite pulse"
-            >
-              What's Your Plans ?
-            </small>
-          </div>
-          <button onClick={this.additem} className="btn">
-            ADD <span className="badge  badge-primary">+</span>
-          </button>
+  return (
+    <React.Fragment>
+      <div className=" d-flex justify-content-center">
+        <div className="form-group col-md-6 text-center">
+          <input
+            type="text"
+            className="form-control"
+            value={text}
+            name="search"
+            placeholder="Enter The Tasks"
+            onChange={handleChange}
+            onKeyPress={(e) => {
+              if (e.key === "Enter") {
+                additem();
+              }
+            }}
+          />
+          <small
+            id="helpId"
+            className="form-text text-muted animated infinite pulse"
+          >
+            What's Your Plans ?
+          </small>
         </div>
-        <TodoList allItem={allItem} onDelete={this.deleteitem} />
-      </React.Fragment>
-    );
-  }
-}
+        <button onClick={additem} className="btn btn-pre">
+          ADD <span className="badge  badge-primary">+</span>
+        </button>
+      </div>
+      <TodoList todos={todos} onDelete={deleteItem} />
+    </React.Fragment>
+  );
+};
+
 export default AddTodo;

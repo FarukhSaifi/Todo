@@ -1,25 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
 
-class TodoList extends Component {
-  render() {
-    return (
-      <div className="container d-flex justify-content-center">
-        <ul className="list-group col-md-6 ">
-          {this.props.allItem.map((one, id) => (
-            <li
-              id={id}
-              key={id}
-              onClick={() => this.props.onDelete(id)}
-              className="list-group-item"
-            >
-              {one}
-            </li>
-          ))}
-        </ul>
-        {console.log(`AllITem: ${this.props.allItem}`)}
-      </div>
-    );
-  }
-}
+const TodoList = ({ todos, onDelete }) => {
+  return (
+    <div className="container d-flex justify-content-center">
+      <ul className="list-group col-md-6 ">
+        {todos.map((todo) => (
+          <li
+            id={todo.id}
+            key={todo.id}
+            onClick={() => onDelete(todo.id)}
+            className="list-group-item"
+          >
+            {todo.title}
+          </li>
+        ))}
+      </ul>
+      {console.log(`AllITem: `, todos)}
+    </div>
+  );
+};
 
 export default TodoList;
