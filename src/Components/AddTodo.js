@@ -48,7 +48,8 @@ const AddTodo = () => {
             What's Your Plans ?
           </small>
         </div>
-        <button onClick={additem} className="btn btn-pre">
+
+        <button type="button" onClick={additem} className="btn btn-dark">
           ADD <span className="badge  badge-primary">+</span>
         </button>
       </div>
