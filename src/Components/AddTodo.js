@@ -14,7 +14,9 @@ const AddTodo = () => {
       id: Math.floor(Math.random() * 100),
       title: text,
     };
-    setTodos([...todos, todo]);
+    if (text !== "") {
+      setTodos([...todos, todo]);
+    }
     setText("");
   };
 
