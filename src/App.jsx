@@ -75,7 +75,7 @@ const App = () => {
 
   return (
     <>
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto mt-8">
         <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
           <div className="flex flex-col space-y-1.5 p-6">
             <h3 className="font-bold tracking-tight text-2xl">Today's Tasks</h3>
