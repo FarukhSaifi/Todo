@@ -1,6 +1,6 @@
 import { useState } from "react";
-import ListItem from "./components/ListItem";
-import Modal from "./components/Modal";
+import ListItem from "./components/ListItem.jsx";
+import Modal from "./components/Modal.jsx";
 import { AddIcon } from "./icon-svg";
 
 const App = () => {
