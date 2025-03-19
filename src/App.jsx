@@ -11,7 +11,7 @@ const App = () => {
     todo: null,
   });
 
-  // Handle adding a new todo
+  // Handle adding a new to
   const addTodo = () => {
     if (newTodo.trim() === "") return;
 
