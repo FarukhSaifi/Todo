@@ -19,9 +19,9 @@ function ListItem({
         </button>
 
         <span className="">{todo.text}</span>
-        <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent ml-2 bg-green-500/10 text-green-500 hover:bg-green-500/20">
+        {/* <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent ml-2 bg-green-500/10 text-green-500 hover:bg-green-500/20">
           low
-        </div>
+        </div> */}
       </div>
 
       <div className="flex gap-1">

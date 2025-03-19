@@ -35,8 +35,6 @@ function Modal({ isOpen, closeModal, todo, saveTodo }) {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setEditedTodo({ ...todo, [name]: value });
-
-    console.log(editedTodo);
   };
 
   // Handle saving the edited todo
@@ -51,20 +49,28 @@ function Modal({ isOpen, closeModal, todo, saveTodo }) {
 
   return (
     <div
-      className="relative z-10"
+      className={`relative z-10 transition-opacity duration-500 ease-out ${
+        isOpen ? "opacity-100" : "opacity-0"
+      }`}
       aria-labelledby="modal-title"
       role="dialog"
       aria-modal="true"
     >
       {/* Background backdrop */}
       <div
-        className="fixed inset-0 bg-black/50 transition-opacity"
+        className={`fixed inset-0 bg-black/50 transition-opacity duration-500 ease-out ${
+          isOpen ? "opacity-100" : "opacity-0"
+        }`}
         aria-hidden="true"
         onClick={closeModal} // Close the modal if clicking outside
       ></div>
 
       {/* Modal content */}
-      <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+      <div
+        className={`fixed inset-0 z-10 w-screen overflow-y-auto transition-all duration-500 ease-out transform ${
+          isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
+      >
         <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
           <div
             ref={modalRef}
