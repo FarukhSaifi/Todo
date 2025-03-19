@@ -1,6 +1,6 @@
 import React from "react";
 import { DeleteIcon, EditIcon } from "../icon-svg";
-import Checkbox from "./CheckBox";
+import Checkbox from "./CheckBox.jsx";
 
 function ListItem({
   todo,
