@@ -1,6 +1,6 @@
 import { useState } from "react";
-import ListItem from "./components/ListItem.jsx";
-import Modal from "./components/Modal.jsx";
+import ListItem from "./components/ListItem";
+import Modal from "./components/Modal";
 import { AddIcon } from "./icon-svg";
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
     todo: null,
   });
 
-  // Handle adding a new todo
+  // Handle adding a new to
   const addTodo = () => {
     if (newTodo.trim() === "") return;
 
