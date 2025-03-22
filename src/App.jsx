@@ -1,8 +1,7 @@
 import { useState } from "react";
-import ListItem from "./components/ListItem";
-import Modal from "./components/Modal";
+import ListItem from "./Components/ListItem.jsx";
+import Modal from "./Components/Modal.jsx";
 import { AddIcon } from "./icon-svg";
-
 const App = () => {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
