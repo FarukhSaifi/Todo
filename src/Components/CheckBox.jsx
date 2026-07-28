@@ -1,16 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 const Checkbox = ({ todo, onCheckboxChange }) => {
-  const [isChecked, setIsChecked] = useState(todo.completed);
-
-  useEffect(() => {
-    setIsChecked(todo.completed); // Update state when the todo is modified
-  }, [todo.completed]);
-
-  // Handle the checkbox click
   const handleCheckboxClick = () => {
-    setIsChecked(!isChecked);
-    onCheckboxChange(todo.id); // Notify parent about the change
+    onCheckboxChange(todo.id);
   };
 
   return (
@@ -20,7 +12,7 @@ const Checkbox = ({ todo, onCheckboxChange }) => {
         id={`checkbox-${todo.id}`}
         type="checkbox"
         className="peer hidden"
-        checked={isChecked}
+        checked={todo.completed}
         onChange={handleCheckboxClick} // Using onChange to reflect changes
       />
 
@@ -34,7 +26,7 @@ const Checkbox = ({ todo, onCheckboxChange }) => {
           {/* Custom checkmark when checked */}
           <span
             className={`w-3 h-3 bg-violet-500 rounded-full ${
-              isChecked ? "block" : "hidden"
+              todo.completed ? "block" : "hidden"
             }`}
           ></span>
         </span>
